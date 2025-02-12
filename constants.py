@@ -1,4 +1,4 @@
-SCREEN_CONFIG = {
+GAME_BOARD_CONFIG = {
     "upper_left": (560, 235),
     "upper_right": (1355, 235),
     "bottom_left": (587, 765),

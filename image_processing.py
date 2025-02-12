@@ -1,27 +1,27 @@
 import pyautogui
-from constants import SCREEN_CONFIG
+from constants import GAME_BOARD_CONFIG
 
 def capture_case():
     """Outdated. Captures every case of the game board and returns them as a screenshot array."""
-    coord_x, coord_y = SCREEN_CONFIG["upper_left"]
+    coord_x, coord_y = GAME_BOARD_CONFIG["upper_left"]
     screenshots = [[]]
 
     for y in range(10):
         for x in range(16):
-            screenshot = pyautogui.screenshot(region=(coord_x, coord_y, SCREEN_CONFIG["case_width"], SCREEN_CONFIG["case_height"]))
-            coord_x += SCREEN_CONFIG["dx"] + SCREEN_CONFIG["case_width"]
+            screenshot = pyautogui.screenshot(region=(coord_x, coord_y, GAME_BOARD_CONFIG["case_width"], GAME_BOARD_CONFIG["case_height"]))
+            coord_x += GAME_BOARD_CONFIG["dx"] + GAME_BOARD_CONFIG["case_width"]
             screenshots[y].append(screenshot)
-        coord_x = SCREEN_CONFIG["upper_left"][0]
-        coord_y += SCREEN_CONFIG["dy"] + SCREEN_CONFIG["case_height"]
+        coord_x = GAME_BOARD_CONFIG["upper_left"][0]
+        coord_y += GAME_BOARD_CONFIG["dy"] + GAME_BOARD_CONFIG["case_height"]
         screenshots.append([])
 
     return screenshots
 
 def capture_plateau():
     """Captures the game board and returns it as a screenshot."""
-    x, y = SCREEN_CONFIG["upper_left"]
-    width = SCREEN_CONFIG["upper_right"][0] - x
-    height = SCREEN_CONFIG["bottom_left"][1] - y
+    x, y = GAME_BOARD_CONFIG["upper_left"]
+    width = GAME_BOARD_CONFIG["upper_right"][0] - x
+    height = GAME_BOARD_CONFIG["bottom_left"][1] - y
 
     screenshot = pyautogui.screenshot(region=(x, y, width, height))
 
