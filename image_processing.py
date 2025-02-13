@@ -24,7 +24,6 @@ def capture_plateau():
     height = GAME_BOARD_CONFIG["bottom_left"][1] - y
 
     screenshot = pyautogui.screenshot(region=(x, y, width, height))
-
     return screenshot
 
 def extract_grid_color():
